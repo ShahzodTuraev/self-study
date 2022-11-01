@@ -10,6 +10,7 @@ class App extends React.Component {
           {data.id} {data.name}
 
         </h1>
+        <img src="./images/mango.jpg" alt="3" />
       </div>
     )
   }

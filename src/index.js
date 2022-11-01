@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import Fruits from './fruits';
 const students = [
   {id: 1, name: 'Shahzod'},
   {id: 2, name: 'Shahboz'},
@@ -14,13 +15,14 @@ const students = [
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {
+    <Fruits />
+    {/* {
       students.map(value =>{
         return (
         <App data={value} />
         )
       })
-    }
+    } */}
     
   </React.StrictMode>
 );
