@@ -5,4 +5,12 @@ export const student = [
     {id: 4, name: 'Bobur', status: 'ACCA'},
     {id: 5, name: 'Sobir', status: 'SPA'},
     {id: 6, name: 'Ali', status: 'IT'},
+    {id: 7, name: 'Jeck', status: 'ACCA'},
+    {id: 8, name: 'Abu', status: 'MBA'},
+    {id: 9, name: 'Qosim', status: 'CBE'},
+    {id: 10, name: 'Anvar', status: 'DB'},
+    {id: 11, name: 'Artur', status: 'UI'},
+    {id: 12, name: 'Salim', status: 'AI'},
+    {id: 13, name: 'Qobul', status: 'DA'},
+    {id: 14, name: 'Tim', status: 'AA'},
 ]

@@ -1,65 +1,32 @@
-import React from 'react';
-// import {student} from './mock'
+import React from "react";
 
-class App extends React.Component {
+class State extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0,
-      isTrue: true
-      // title: 'Web brain',
-      // gender: 'das',
-      // data: student,
-      // name: 'Shahzod',
-      // surname: 'Turaev'
-    }
+      grade: 0,
+      percentage: 0,
+    };
   }
-  render() {
-    const onChange =({target: {value, name }}) => {
-     this.setState({[name] : value});
-    //  this.setState({isTrue: this.state.password?.length <= 4})
-    this.setState({[name] : value}, () => {
-      console.log(this.state.password?.length);
-    })
-    }
-    
-    return(
-      <div>
-        <h1>Number : {this.state.password} - 
-        { this.state.isTrue ? "to'g'ri" : "noto'g'ri"}</h1>
-        <br />
 
-        <input name='password' type="number" onChange={onChange} />
+
+  render() {
+    const calculate = ({target:{value}}) =>{
+      this.setState({grade: value},() =>{
+        
+      });
+
+      this.setState({percentage: this.state.grade/ 1.93})
+
+    }
+    return (
+      <div>
+        <h1>Max Grade {193}</h1>
+        <h1>Grade {this.state.grade}</h1>
+        <h1>Percentage {this.state.percentage} %</h1>
+        <input onChange={calculate} type="number" />
       </div>
     )
-
-
-
-    // const onFilter = (e) => {
-    //   console.log(e.target.value);
-    //   let res = student.filter(value=> value.status.includes(e.target.value))
-    //   this.setState({
-    //     data: res
-    //   })
-
-    // }
-
-    
-    // return (
-    //   <div>
-         
-
-    //     <input onChange={onFilter} type="text"  placeholder='filter'/>
-
-    //     {
-    //       this.state.data.map(({id, name, status})=>{
-    //         return(
-    //           <h1 key={id}>{id} {name} {status}</h1>
-    //         )
-    //       })
-    //     }
-    //   </div>
-    // )
   }
 }
-export default App;
+export default State;
