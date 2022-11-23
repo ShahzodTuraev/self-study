@@ -1,52 +1,41 @@
-import { type } from "@testing-library/user-event/dist/type";
-import React, {useState, useReducer} from "react";
-const Hooks=(props)=>{
-    const [count, setCount] = useState(0);
-    const [name, setName] = useState('webbrain');
 
+import React, {useState, useReducer} from "react";
+import {Container, Title, Button, Select} from './styleHooks'
+const Hooks=(props)=>{
     const reducer =(state, action)=>{
         console.log(state, action);
         switch(action.type){
             case 'plus':
-                return state + 1;
-            case 'minus':
-                return state - 1;
-            case 'byamount':
                 return state + action.payload;
+            case 'minus':
+                return state - action.payload;
             default:
                 return state;
         }
     };
     const[counter, dispatch] = useReducer(reducer, 0);
-    // const [counter, dispatch] = useReducer((state, action)=>{
-    //     console.log(state, action);
-    //     switch(action.type){
-    //         case 'plus':
-    //             return state + 1;
-    //         case 'minus':
-    //             return state - 1;
-    //         case 'byamount':
-    //             return state + action.payload;
-    //         default:
-    //             return state;
-    //     }
-    // }, 0)
+    const [amount, setAmount] = useState(1)
+    const onSellect =({target:{value}})=>{
+        console.log(value);
+        setAmount(Number(value));
+    }
 
     return(
-        <div style={{flex: 1}}>
+        <Container style={{flex: 1}}>
             <h1>Hooks Components</h1>
-            <h1>Count: {count}</h1>
-            <button onClick={()=>setCount(count - 1)}>-</button>
-            <button onClick={()=>setCount(count + 1)}>+</button>
-            <h1>Counter: {counter}</h1>
-            <button onClick={()=>dispatch({type: 'minus'})}>-</button>
-            <button onClick={()=>dispatch({type: 'plus'})}>+</button>
-            <button onClick={()=>dispatch({type: 'byamount', payload: 5})}>5</button>
-            <button onClick={()=>dispatch({type: 'byamount', payload: 50})}>50</button>
-            <input type="text" value={name} 
-            onChange={({target})=>setName( target.value)} />
+            <Title>Counter: {counter}</Title>
+            <Button onClick={()=>dispatch({type: 'minus', payload: amount})}>-</Button>
+            <Select onChange={onSellect}>
+                <option value="1">1</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="50">50</option>
+            </Select>
+            <Button onClick={()=>dispatch({type: 'plus', payload: amount})}>+</Button>
 
-        </div>
+            
+
+        </Container>
     );
 }
 
