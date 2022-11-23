@@ -7,7 +7,7 @@ import Hooks from './Hooks';
         return(
             <div style={{display: 'flex'}}>
                 <Class />
-                <Hooks />
+                {/* <Hooks /> */}
             </div>
         )
     }
